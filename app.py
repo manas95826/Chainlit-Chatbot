@@ -2,7 +2,7 @@ from langchain import PromptTemplate, LLMChain
 import chainlit as cl
 from langchain import HuggingFaceHub
 # import PySimpleGUI as sg
-from deep_translator import GoogleTranslator
+# from deep_translator import GoogleTranslator
 
 # def select_language(window, event, values):
 #     global language
