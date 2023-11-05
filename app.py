@@ -1,34 +1,34 @@
 from langchain import PromptTemplate, LLMChain
 import chainlit as cl
 from langchain import HuggingFaceHub
-import PySimpleGUI as sg
+# import PySimpleGUI as sg
 from deep_translator import GoogleTranslator
 
-def select_language(window, event, values):
-    global language
-    language = [values[event]]  # Convert the selected language to a list
-    # Do something with the selected language
+# def select_language(window, event, values):
+#     global language
+#     language = [values[event]]  # Convert the selected language to a list
+#     # Do something with the selected language
 
-sg.theme('DefaultNoMoreLines')
+# sg.theme('DefaultNoMoreLines')
 
-layout = [[sg.Text('Select Language'), sg.Combo(['English', 'Spanish', 'French'], key='-LANGUAGE-')],
-          [sg.Button('OK', key='-OK-')]]
+# layout = [[sg.Text('Select Language'), sg.Combo(['English', 'Spanish', 'French'], key='-LANGUAGE-')],
+#           [sg.Button('OK', key='-OK-')]]
 
-window = sg.Window('Language Selector', layout)
+# window = sg.Window('Language Selector', layout)
 
-while True:
-    event, values = window.read()
-    if event == sg.WINDOW_CLOSED or event == '-OK-':
-        break
-    elif event == '-LANGUAGE-':
-        select_language(window, event, values)
+# while True:
+#     event, values = window.read()
+#     if event == sg.WINDOW_CLOSED or event == '-OK-':
+#         break
+#     elif event == '-LANGUAGE-':
+#         select_language(window, event, values)
 
-window.close()
-# Change the language argument to a string
-language = "Spanish"
+# window.close()
+# # Change the language argument to a string
+# language = "Spanish"
 
 # Convert the list to a tuple
-language = tuple(language)
+# language = tuple(language)
 repo_id = "google/flan-t5-large"
 # Create the HuggingFaceHub object
 llm = HuggingFaceHub(
@@ -67,12 +67,12 @@ async def main(message: cl.Message):
     # Call the chain asynchronously
     res = await llm_chain.acall(message.content, callbacks=[cl.AsyncLangchainCallbackHandler()])
     # english = res["text"]
-    translator = GoogleTranslator(source='auto', target='es')
+    # translator = GoogleTranslator(source='auto', target='es')
     # translation = translator.translate(english)
     # res["text"] = translation
     # Do any post processing here
 
     # "res" is a Dict. For this chain, we get the response by reading the "text" key.
     # This varies from chain to chain, you should check which key to read.
-    print(translator.translate(res["text"]))
-    await cl.Message(content=translator.translate(res["text"])).send()
+    # print(translator.translate(res["text"]))
+    await cl.Message(content=res["text"]).send()
