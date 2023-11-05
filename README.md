@@ -1,7 +1,5 @@
-Certainly! Here's a simplified README template that you can copy and paste:
 
-```markdown
-# Project Title
+# Chainlit-Chatbot
 
 Brief description of your project.
 
