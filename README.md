@@ -29,7 +29,7 @@ High-level overview of your project. What does it do? Why is it useful?
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/yourusername/yourproject.git
+   git clone https://github.com/manas95826/Chainlit-Chatbot.git
    ```
 
 2. Install the required Python packages:
