@@ -2,12 +2,14 @@ from langchain import PromptTemplate, LLMChain
 import chainlit as cl
 from langchain import HuggingFaceHub
 import PySimpleGUI as sg
-from deep_translator import GoogleTranslator
+from translate import Translator as TextTranslator
+
+a = []  # Create a list to store the selected language
 
 def select_language(window, event, values):
-    global language
-    language = [values[event]]  # Convert the selected language to a list
-    # Do something with the selected language
+    selected_language = values['-LANGUAGE-']
+    a.append(selected_language)  # Append the selected language to the 'a' list
+    window.close()
 
 sg.theme('DefaultNoMoreLines')
 
@@ -18,17 +20,13 @@ window = sg.Window('Language Selector', layout)
 
 while True:
     event, values = window.read()
-    if event == sg.WINDOW_CLOSED or event == '-OK-':
+    if event == sg.WINDOW_CLOSED:
         break
-    elif event == '-LANGUAGE-':
+    elif event == '-OK-':
         select_language(window, event, values)
 
-window.close()
-# # Change the language argument to a string
-language = "Spanish"
+# window.close()
 
-# Convert the list to a tuple
-language = tuple(language)
 repo_id = "tiiuae/falcon-7b-instruct"
 # Create the HuggingFaceHub object
 llm = HuggingFaceHub(
@@ -67,6 +65,19 @@ async def main(message: cl.Message):
     # Call the chain asynchronously
     res = await llm_chain.acall(message.content, callbacks=[cl.AsyncLangchainCallbackHandler()])
     # english = res["text"]
-    translator = GoogleTranslator(source='auto', target='es')
-    print(translator.translate(res["text"]))
+    if(a[0]=="Spanish"):
+        translator = TextTranslator(to_lang="es")
+    elif(a[0]=="French"):
+        translator = TextTranslator(to_lang="fr")
+    else:
+        translator = TextTranslator(to_lang="en")
+
+    # translator = TextTranslator(to_lang="es")
+    # translation = translator.translate(english)
+    # res["text"] = translation
+    # Do any post processing here
+
+    # "res" is a Dict. For this chain, we get the response by reading the "text" key.
+    # This varies from chain to chain, you should check which key to read.
     await cl.Message(content=translator.translate(res["text"])).send()
+    print(translator)
