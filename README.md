@@ -1,8 +1,8 @@
 # Chainlit Chatbot
 
-## Introduction
 
 Chainlit Chatbot is a Python script that leverages the Chainlit library for building a chatbot. The chatbot includes a language selection feature and utilizes the Hugging Face model for generating responses. Additionally, it integrates language translation using the Translate library.
+
 
 ## Installation
 
