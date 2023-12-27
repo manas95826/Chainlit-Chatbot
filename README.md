@@ -13,15 +13,15 @@ To use the chatbot, follow these steps:
 ```bash
 pip install langchain chainlit PySimpleGUI translate
 ```
-Clone the repository:
-bash
-Copy code
+2. Clone the repository:
+```bash
 git clone https://github.com/themanas95826/Chainlit-Chatbot.git
 cd Chainlit-Chatbot
-Run the chatbot script:
-bash
-Copy code
-python chatbot_script.py
+```
+3. Run the chatbot script:
+```bash
+chainlit run app.py
+```
 Usage
 Upon running the script, a language selection window will appear. Choose a language from the dropdown menu, and the chatbot will generate responses accordingly.
 
