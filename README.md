@@ -22,25 +22,30 @@ cd Chainlit-Chatbot
 ```bash
 chainlit run app.py
 ```
-Usage
+## Usage
+
 Upon running the script, a language selection window will appear. Choose a language from the dropdown menu, and the chatbot will generate responses accordingly.
 
-Hugging Face Model
+## Hugging Face Model
+
 The chatbot uses the Hugging Face model with the following parameters:
 
+```
 Repository ID: tiiuae/falcon-7b-instruct
 Model Parameters: temperature=0.3, max_new_tokens=1024
-Translation Feature
+```
+
+## Translation Feature
+
 The chatbot includes a language translation feature powered by the Translate library. Responses are translated based on the selected language.
 
-Examples
+## Examples
 Here are examples of running the chatbot with different language selections:
 
 English
 Spanish
 French
 Contributing
+
 Contributions to the project are welcome. Feel free to submit issues and pull requests.
 
-License
-This project is licensed under the MIT License.
