@@ -12,6 +12,7 @@ To use the chatbot, follow these steps:
 
 ```bash
 pip install langchain chainlit PySimpleGUI translate
+```
 Clone the repository:
 bash
 Copy code
