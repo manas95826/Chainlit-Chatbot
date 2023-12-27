@@ -1,69 +1,45 @@
+# Chainlit Chatbot
 
-# Chainlit-Chatbot
+## Introduction
 
-Brief description of your project.
+Chainlit Chatbot is a Python script that leverages the Chainlit library for building a chatbot. The chatbot includes a language selection feature and utilizes the Hugging Face model for generating responses. Additionally, it integrates language translation using the Translate library.
 
-## Table of Contents
+## Installation
 
-- [Overview](#overview)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Endpoints](#endpoints)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
+To use the chatbot, follow these steps:
 
-## Overview
+1. Install the required Python libraries:
 
-High-level overview of your project. What does it do? Why is it useful?
+```bash
+pip install langchain chainlit PySimpleGUI translate
+Clone the repository:
+bash
+Copy code
+git clone https://github.com/themanas95826/Chainlit-Chatbot.git
+cd Chainlit-Chatbot
+Run the chatbot script:
+bash
+Copy code
+python chatbot_script.py
+Usage
+Upon running the script, a language selection window will appear. Choose a language from the dropdown menu, and the chatbot will generate responses accordingly.
 
-## Getting Started
+Hugging Face Model
+The chatbot uses the Hugging Face model with the following parameters:
 
-### Prerequisites
+Repository ID: tiiuae/falcon-7b-instruct
+Model Parameters: temperature=0.3, max_new_tokens=1024
+Translation Feature
+The chatbot includes a language translation feature powered by the Translate library. Responses are translated based on the selected language.
 
-- Python 3.7 or higher
-- Required libraries and dependencies (if any)
+Examples
+Here are examples of running the chatbot with different language selections:
 
-### Installation
+English
+Spanish
+French
+Contributing
+Contributions to the project are welcome. Feel free to submit issues and pull requests.
 
-1. Clone this repository:
-
-   ```bash
-   git clone https://github.com/manas95826/Chainlit-Chatbot.git
-   ```
-
-2. Install the required Python packages:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Usage
-
-Explain how to use your project. Provide code examples or usage scenarios.
-
-## Endpoints
-
-List and describe API endpoints (if applicable). Include HTTP methods, request parameters, and response format.
-
-- `GET /api/resource`: Description of the endpoint. Parameters: `param1` (string), `param2` (integer). Response format: JSON.
-
-- `POST /api/resource`: Description of the endpoint. Parameters: `param3` (string). Response format: JSON.
-
-## Configuration
-
-Explain configuration options or settings. Include details like configuration files and environment variables.
-
-- Configuration file: `config.yaml`
-- Environment variables: `API_KEY`
-
-## Contributing
-
-Guidelines for reporting issues, suggesting improvements, and submitting pull requests.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details.
-```
-
-You can paste this template into your project's README file and then replace the placeholders with your project's specific information.
+License
+This project is licensed under the MIT License.
